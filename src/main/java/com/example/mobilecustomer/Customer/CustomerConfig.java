@@ -1,6 +1,5 @@
 package com.example.mobilecustomer.Customer;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,13 +12,13 @@ public class CustomerConfig {
     CommandLineRunner commandLineRunner(CustomerRepository customerRepository){
         return args -> {
            Customer cust1 = new Customer(
-                    "13343757938",
+                    "0205230833",
                     3,
                     3,
                     ServiceType.valueOf("MOBILE_PREPAID")
             );
             Customer cust2 = new Customer(
-                            "15343757938",
+                            "9547013414",
                             2,
                             6,
                             ServiceType.valueOf("MOBILE_PREPAID"));

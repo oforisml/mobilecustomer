@@ -1,25 +1,52 @@
 package com.example.mobilecustomer;
 
+import com.google.i18n.phonenumbers.NumberParseException;
+import com.google.i18n.phonenumbers.PhoneNumberUtil;
+import com.google.i18n.phonenumbers.Phonenumber;
+
+import java.util.Locale;
+
 public class PhoneNumberConversion {
-    public static String formatPhone(String phoneNumber, String formattingPattern, String countryCode){
-        if(phoneNumber == null)
-            return null;
-        if (formattingPattern == null)
-            return phoneNumber;
-        if(countryCode == null)
-            return phoneNumber;
+    public static String formatPhone( String msisdn) {
+        char[] S;
+        String s = msisdn;
 
-        int numberPatternn = "#".charAt(0);
-        String formattedPhone = "";
-        String normalizedNumber ;
-        boolean hasCountryCode = false;
 
-        //calculating pattern length without spaces, etc
-        int patternLength = formattingPattern.replaceAll(" ", "").length();
 
-        //normalizing the number
-        normalizedNumber = phoneNumber.replaceAll("[^]")
+        String  formatted;
+        if(s.charAt(0)=='0') {
+            S=s.toCharArray();
+            S[0]='9';
+            s = String.valueOf(S);
+
+            PhoneNumberUtil phoneUtil = PhoneNumberUtil.getInstance();
+            Phonenumber.PhoneNumber phoneNumber = null;
+            try {
+                phoneNumber = phoneUtil.parse(s, Locale.US.getCountry());
+            } catch (NumberParseException e) {
+                e.printStackTrace();
+            }
+            String newString = phoneUtil.format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.NATIONAL);
+            S = newString.toCharArray();
+            S[1]='0';
+            formatted = String.valueOf(S);
+
 
         }
+
+        else {
+            PhoneNumberUtil phoneUtil = PhoneNumberUtil.getInstance();
+            Phonenumber.PhoneNumber phoneNumber = null;
+            try {
+                phoneNumber = phoneUtil.parse(s, Locale.US.getCountry());
+            } catch (NumberParseException e) {
+                e.printStackTrace();
+            }
+            formatted = phoneUtil.format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.NATIONAL);
+        }
+        return formatted;
+
     }
 }
+
+

@@ -1,6 +1,8 @@
 package com.example.mobilecustomer.Customer;
 
 
+import com.example.mobilecustomer.PhoneNumberConversion;
+
 import javax.persistence.*;
 
 @Entity(name="Customer")
@@ -74,7 +76,9 @@ public class Customer {
     }
 
     public String getMsisdn() {
-        return msisdn;
+
+        String standardPhoneNumber = PhoneNumberConversion.formatPhone(msisdn);
+        return standardPhoneNumber;
     }
 
     public void setMsisdn(String msisdn) {
