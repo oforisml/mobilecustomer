@@ -72,6 +72,7 @@ public class CustomerService {
             Optional<Customer> customerOptional = customerRepository.findByMsisdn(msisdn);
             if(customerOptional.isPresent()){
                 throw new IllegalStateException("Number taken");
+
             }
             customer.setMsisdn(msisdn);
         }
