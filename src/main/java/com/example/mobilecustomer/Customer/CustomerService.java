@@ -84,9 +84,5 @@ public class CustomerService {
             else
                 throw new IllegalStateException("Chose either MOBILE_POSTPAID/MOBILE_PREPAID");
         }
-
-
     }
-
-
 }

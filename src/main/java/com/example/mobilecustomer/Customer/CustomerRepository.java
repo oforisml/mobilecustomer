@@ -7,5 +7,5 @@ import java.util.Optional;
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
     Optional <Customer> findByMsisdn (String msisdn);
     Optional <Customer> findById (Integer id);
-    Optional <Customer> findByServiceType (ServiceType serviceType);
+//    Optional <Customer> findByServiceType (ServiceType serviceType);
 }
