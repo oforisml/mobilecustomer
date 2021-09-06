@@ -15,6 +15,8 @@ POST, GET, PUT AND DELETE
 
 Now their endpoints follow
 
+
+
 GET: 
 
 This can be used to fetch either all the users on the system or a specific user on the system using the individual's `id`
@@ -25,6 +27,7 @@ To fetch an individual user, the `id` is passed as a parameter to the endpoint.
 That is `localhost:8080/api/customers/<ID>` where <ID> is the ID of the customer
 
 
+    
 DELETE:
 
 To delete an individual's account, the delete method is implemented and the endpoint is passed the 
@@ -35,6 +38,8 @@ eg.    `localhost:8080/api/customers/<ID>`
 There is not a method for deleting all customers at the same time since no such API is really necessary in the 
 real world.
 
+
+    
 PUT
 
 To update a user's details(`msisdn` or `network_plan`), one must pass the `@RequestParameter(s)` to the endpoint of the API
@@ -47,6 +52,8 @@ In case of multiple parameters: `localhost:8080/api/customers/<ID>`?`fistParam`=
 where <@firstRequestParameter> and <@SecondRequestParameter> are the 
 
 
+    
+    
 DATA REPRESENTATION
 
 The phone number is represented in the form `(xxx) xxx-xxxx`
